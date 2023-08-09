@@ -58,18 +58,19 @@ const Navbar = () => {
       }}
     >
       <div
-        className="demo-logo"
-        style={{ display: "flex", alignItems: "center" }}
+        className="-logo"
+        style={{ display: "flex", alignItems: "center",marginLeft:"-50px" }}
       >
         <Image
           src={"/logo/logo-2.png"}
           height={150}
           width={250}
           style={{ objectFit: "contain" }}
+          alt= "brand logo"
         />
       </div>
       <Menu className={styles.menu_container} mode="horizontal" defaultSelectedKeys={["2"]} >
-       <div className={styles.menu}>
+       <div className={styles.menu_1}>
        <Dropdown
           overlayStyle={{ color: "white", borderRadius:"5px", width:"300px" }}
           menu={{
@@ -86,7 +87,7 @@ const Navbar = () => {
         <Button className={styles.pc_builder_btn} type="primary" size="large" icon={<MergeCellsOutlined />}>PC Builder</Button>
         </Link>
        </div>
-       <div className={styles.menu}>
+       <div className={styles.menu_2}>
        <Link href={"/pc-builder"}>
         <Button className={styles.nav_btn} type="primary" size="large">Login</Button>
         </Link>

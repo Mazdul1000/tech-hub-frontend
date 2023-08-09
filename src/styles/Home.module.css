@@ -1,6 +1,10 @@
 
-/* Navbar */
+.main{
+    font-family: 'Oswald', sans-serif;
+}
 
+
+/* Navbar */
 .menu_container {
     background: inherit;
     width: 100%;
@@ -8,22 +12,36 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
 }
 
-.menu{
+.menu_1{
     display: flex;
     gap: 20px;
+    width: 100%;
+    align-items: center ;
+    justify-content: flex-start;
+    margin-left: -40px;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+.menu_2{
+    display: flex;
+    gap: 20px;
+    width: 100%;
     align-items: center ;
     justify-content: flex-end;
     margin: 0;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
 }
 
 .pc_builder_btn{
     background: rgb(59,43,169);
     background: linear-gradient(90deg, rgba(59,43,169,1) 0%, rgba(178,111,204,1) 100%);
-    font: bolder;
+    font-family: 'Oswald', sans-serif;
     border: none;
+    font-weight: 600;
 }
 
 .pc_builder_btn:hover{
@@ -32,6 +50,8 @@
 
 .nav_btn{
     background-color: #3b2ba9 ;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
 }
 
 .nav_btn:hover{
