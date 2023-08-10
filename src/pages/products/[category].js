@@ -3,8 +3,10 @@ import { Card, Col, Rate, Row } from "antd";
 import Image from "next/image";
 import styles from "@/styles/Category.module.css";
 import { transformString } from "@/utils/transformString";
+import { useRouter } from "next/router";
 
 const CategoryPage = ({ category, products }) => {
+    const router = useRouter();
   return (
     <main className={`${styles.main}`}>
       <h1 style={{padding:"20px 20px"}}>Product category: {transformString(category)}</h1>
@@ -22,7 +24,7 @@ const CategoryPage = ({ category, products }) => {
             lg: 32,
           }]}
         justify= "center"
-        style={{height:"100%",}}
+        style={{height:"100%"}}
       >
         {products.map((product) => (
           <Col
@@ -30,13 +32,16 @@ const CategoryPage = ({ category, products }) => {
             xs={24}
             md={12}
             xl={8}
+            span={3}
             key={product.product_name}
           >
             <div>
               <Card
                 hoverable
+                onClick={() => router.push(`/products/${product.category}/${product._id}`)}
                 style={{
                   width: 350,
+                  height: 550
                 }}
                 cover={
                   <Image
@@ -96,9 +101,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  console.log(params, "here");
-  const category = params.category; // Extract the category parameter
-  const res = await fetch(`http://localhost:5001/products/${category}`); // Update the API endpoint URL
+  const category = params.category; 
+  const res = await fetch(`http://localhost:5001/products/${category}`); 
   const data = await res.json();
 
   return {
