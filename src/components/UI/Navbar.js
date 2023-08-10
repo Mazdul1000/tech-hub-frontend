@@ -4,12 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { DownOutlined, MergeCellsOutlined } from '@ant-design/icons';
 import styles from "@/styles/Home.module.css"
-
+import { useRouter } from "next/router";
 const { Header } = Layout;
 
-import React from "react";
-
 const Navbar = () => {
+
+  const router = useRouter();
+   console.log(router.pathname, router.query)
   const items = [
     {
       key: "1",
@@ -35,7 +36,7 @@ const Navbar = () => {
       key: "3",
       label: (
         <Link
-          href="/products/ram"
+          href="/products/RAM"
         >
           RAM
         </Link>
