@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import RootLayout from '@/components/Layouts/RootLayout'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
+import RootLayout from "@/components/Layouts/RootLayout";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -16,19 +16,23 @@ export default function Home() {
         <link rel="icon" href="/logo/logo-1.png" />
       </Head>
       <main className={`${styles.main}`}>
-        <h1>Hello world</h1>
+
+        <div className={styles.heroSection}>
+          <div className={styles.overlay}></div>
+          <div className={styles.content}>
+            <h1>Welcome to TECH-HUB</h1>
+            <p>Build your dream PC with our customizable options.</p>
+          </div>
+        </div>
+
+        <div>
+
+        </div>
       </main>
     </>
-  )
+  );
 }
 
-
-
-Home.getLayout = function getLayout(page){
-
-  return (
-    <RootLayout>
-      {page}
-    </RootLayout>
-  )
-}
+Home.getLayout = function getLayout(page) {
+  return <RootLayout>{page}</RootLayout>;
+};

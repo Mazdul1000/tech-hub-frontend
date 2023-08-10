@@ -93,8 +93,9 @@ const Navbar = () => {
       }}
     >
       <div
-        className="-logo"
-        style={{ display: "flex", alignItems: "center",marginLeft:"-50px" }}
+        className="brand-logo"
+        style={{ display: "flex", alignItems: "center",marginLeft:"-50px", cursor:"pointer" }}
+        onClick={() => router.push('/')}
       >
         <Image
           src={"/logo/logo-2.png"}
