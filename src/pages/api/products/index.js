@@ -10,25 +10,24 @@ const client = new MongoClient(uri, {
   }
 });
 
-
 async function run(req, res) {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-
     const productCollection = client.db("tech-hub").collection("products");
 
-    if(req.method === "GET"){
-        const products = await productCollection.find({category:"motherboard"}).toArray();
-
-        res.send({message: "success", status:"200", data: products})
+    if (req.method === "GET") {
+      const products = await productCollection.find().toArray();
+      res.status(200).json({ message: "success", status: 200, products });
+    } else {
+      res.status(405).json({ message: "Method not allowed", status: 405 });
     }
-    
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ message: "Internal server error", status: 500 });
   } finally {
-    // Ensures that the client will close when you finish/error
-    // await client.close();
+    // Ensure the client is closed after the request is handled
+    await client.close();
   }
 }
-run()
 
 export default run;

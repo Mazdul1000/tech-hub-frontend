@@ -14,37 +14,71 @@ const Navbar = () => {
     {
       key: "1",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+        <Link
+          href="/products/processor"
         >
-          1st menu item
-        </a>
+          CPU / Processor
+        </Link>
       ),
     },
     {
       key: "2",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
+        <Link
+          href="/products/motherboard"
         >
-          2nd menu item
-        </a>
+          Motherboard
+        </Link>
       ),
     },
     {
       key: "3",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
+        <Link
+          href="/products/ram"
         >
-          3rd menu item
-        </a>
+          RAM
+        </Link>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <Link
+          href="/products/power supply"
+        >
+          Power Supply Unit (PSU)
+        </Link>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <Link
+          href="/products/storage"
+        >
+          Storage Device
+        </Link>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <Link
+          href="/products/monitor"
+        >
+          Monitors
+        </Link>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <Link
+          href="/products/others"
+        >
+          Others
+        </Link>
       ),
     },
   ];
