@@ -3,10 +3,12 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import RootLayout from "@/components/Layouts/RootLayout";
+import { shuffleArray } from "@/utils/suffleArray";
+import { Card, Col, Rate, Row } from "antd";
+import { useRouter } from "next/router";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Home({products}) {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -25,8 +27,76 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
-
+        <div >
+          <h1 className={styles.featured_header}>Featured Product</h1>
+          <Row
+          className={styles.featured_section}
+        gutter={[{
+          xs: 8,
+          sm: 16,
+          md: 24,
+          lg: 32,
+        },{
+            xs: 8,
+            sm: 16,
+            md: 24,
+            lg: 32,
+          }]}
+        justify= "center"
+        style={{height:"100%"}}
+      >
+        {products.map((product) => (
+          <Col
+            className={`gutter-row ${styles.grid_card}`}
+            xs={24}
+            md={12}
+            xl={8}
+            span={3}
+            key={product.product_name}
+          >
+            <div>
+              <Card
+                hoverable
+                onClick={() => router.push(`/products/${product.category}/${product._id}`)}
+                style={{
+                  width: 350,
+                  height: 550
+                }}
+                cover={
+                  <Image
+                    src={product.image_url}
+                    alt={product.product_name}
+                    width={400}
+                    height={300}
+                  />
+                }
+              >
+                <div className={`${styles.grid_card}`}>
+                  <h2>{product.product_name}</h2>
+                  <p>
+                    <span>Category:</span> {product.category}
+                  </p>
+                  <p>
+                    <span>Price:</span> {product.price}
+                  </p>
+                  <p>
+                    <span>Stock status:</span> {product.status}
+                  </p>
+                  <div>
+                    <span>Rating: </span>{" "}
+                    <Rate
+                      className={`${styles.rating}`}
+                      disabled
+                      allowHalf
+                      defaultValue={product.rating}
+                    />
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </Col>
+        ))}
+      </Row>
         </div>
       </main>
     </>
@@ -36,3 +106,18 @@ export default function Home() {
 Home.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
+
+
+export const getStaticProps = async() => {
+  const res = await fetch("http://localhost:5001/products");
+  const data = await res.json();
+
+  const suffleProducts = shuffleArray(data.products).slice(0, 6);
+
+  
+  return {
+    props:{
+      products: suffleProducts
+    }
+  }
+}

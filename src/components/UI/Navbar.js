@@ -8,9 +8,7 @@ import { useRouter } from "next/router";
 const { Header } = Layout;
 
 const Navbar = () => {
-
   const router = useRouter();
-   console.log(router.pathname, router.query)
   const items = [
     {
       key: "1",
@@ -43,7 +41,7 @@ const Navbar = () => {
       ),
     },
     {
-      key: "3",
+      key: "4",
       label: (
         <Link
           href="/products/power supply"
@@ -53,7 +51,7 @@ const Navbar = () => {
       ),
     },
     {
-      key: "3",
+      key: "5",
       label: (
         <Link
           href="/products/storage"
@@ -63,7 +61,7 @@ const Navbar = () => {
       ),
     },
     {
-      key: "3",
+      key: "6",
       label: (
         <Link
           href="/products/monitor"
@@ -73,7 +71,7 @@ const Navbar = () => {
       ),
     },
     {
-      key: "3",
+      key: "7",
       label: (
         <Link
           href="/products/others"
