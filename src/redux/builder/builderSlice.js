@@ -19,8 +19,8 @@ const builderSlice = createSlice({
     initialState,
     reducers:  {
         selectComponent: (state, action) => {
-            const { category, component } = action.payload;
-            state.components[category] = component;
+            const { category } = action.payload;
+            state.components[category] = action.payload;
         },
         removeComponent: (state, action) => {
             const { category } = action.payload;
