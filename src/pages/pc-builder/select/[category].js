@@ -106,7 +106,7 @@ SelectComponent.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-export const getStaticPaths = async () => {
+/* export const getStaticPaths = async () => {
   const res = await fetch(`http://localhost:5001/products`);
   const data = await res.json();
   const categories = [
@@ -117,9 +117,9 @@ export const getStaticPaths = async () => {
     paths,
     fallback: false,
   };
-};
+}; */
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const category = params.category;
   const res = await fetch(`http://localhost:5001/products/${category}`);
   const data = await res.json();
