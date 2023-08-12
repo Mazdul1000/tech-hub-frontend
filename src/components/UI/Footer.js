@@ -7,12 +7,13 @@ const Footer = () => {
         <AntFooter
         style={{
           textAlign: 'center',
-          backgroundColor:'rgb(0,22,40)',
+          backgroundColor:'rgb(59,43,169)',
           color: 'white',
-          font: 'bold'
+          fontFamily: "Oswald, sans-serif",
+
         }}
       >
-        Ant Design ©2023 Created by Ant UED
+        Tech-Hub ©2023 Crafted by Mazedul Hasan
       </AntFooter>
     );
 };

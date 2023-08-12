@@ -92,8 +92,8 @@ Tech-Hub is your one-stop solution for crafting personalized PCs. With Next.js a
 
 1. Run the application using `npm run dev`.
 2. Access Tech-Hub in your browser at `http://localhost:3000`.
-3.build for production using `npm run build` .
+3. build for production using `npm run build` .
 
-Feel free to explore the plethora of features offered by Tech-Hub, where crafting your ideal PC is just a click away!
+Feel free to explore.
 
 ---
