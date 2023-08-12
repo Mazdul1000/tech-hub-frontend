@@ -3,7 +3,7 @@ const data = {
         products: [
             {
                 product_name: "Intel 10th Gen Core i3 10100F Processor",
-                catagorory: "processor",
+                category: "processor",
                 image_url: "https://www.startech.com.bd/image/cache/catalog/processor/Intel/i3-10100/i3-10100-500x500.jpg",
                 price: "8200",
                 status: "In Stock",
@@ -19,11 +19,27 @@ const data = {
                     memory_type: "DDR4-2666"
                 },
                 rating: 3,
-                reviews: []               
+                reviews: [
+                  {
+                    "username": "CasualUser",
+                    "message": "Good value for the price. Handles regular tasks with ease.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "TechNovice",
+                    "message": "Not too expensive and works well for my basic computing needs.",
+                    "rating": 3
+                  },
+                  {
+                    "username": "DIYEnthusiast",
+                    "message": "Solid budget CPU for building entry-level systems.",
+                    "rating": 4
+                  }
+                ]               
             },
             {
                 product_name: "Intel Core I7-11700K 8 Core 16 Thread 11th Gen Processor",
-                catagorory: "processor",
+                category: "processor",
                 image_url: "https://www.startech.com.bd/image/cache/catalog/processor/Intel/i7-11700k/i7-11700k-001-500x500.jpg",
                 price: 8200,
                 status: "In Stock",
@@ -46,7 +62,7 @@ const data = {
             },
             {
                 product_name: "AMD Ryzen 7 3700X 8 Core 16 Thread AM4 Processor",
-                catagorory: "processor",
+                category: "processor",
                 image_url: "https://www.techlandbd.com/image/catalog/Processor/AMD/Ryzen%207/ryzen-7-3700x-processor-price-in-bd.jpg",
                 price: 29800,
                 status: "In Stock",
@@ -63,11 +79,25 @@ const data = {
                     default_TDP: "65W"
                 },
                 rating: 5,
-                reviews: []               
+                reviews: [ {
+                  "username": "ProGamer",
+                  "message": "Handles gaming and streaming effortlessly. Impressive performance.",
+                  "rating": 5
+                },
+                {
+                  "username": "ContentCreator",
+                  "message": "Great for video editing and multitasking. Speeds up my workflow.",
+                  "rating": 5
+                },
+                {
+                  "username": "TechGuru",
+                  "message": "A powerhouse for productivity. The 8 cores are a game-changer.",
+                  "rating": 5
+                }]               
             },
             {
                 product_name: "Gigabyte GA-H81M-DS2 Micro ATX Motherboard",
-                catagorory: "motherboard",
+                category: "motherboard",
                 image_url: "https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/ga-h81m-ds2/ga-h81m-ds2-1-500x500.jpg",
                 price: 7800,
                 status: "In Stock",
@@ -82,7 +112,21 @@ const data = {
                     form_factor:"Micro ATX"
                  },
                 rating: 5,
-                reviews: []               
+                reviews: [  {
+                  "username": "PCBuilder123",
+                  "message": "Decent motherboard for budget builds. Easy setup.",
+                  "rating": 4
+                },
+                {
+                  "username": "TechEnthusiast",
+                  "message": "Basic motherboard with good reliability. Works well for office PCs.",
+                  "rating": 3
+                },
+                {
+                  "username": "GamerGuy",
+                  "message": "Not ideal for gaming rigs, but does the job for basic setups.",
+                  "rating": 2
+                }]               
             },
             {
                 product_name: "ASUS ROG Strix Z590-E Gaming ATX Motherboard",
@@ -101,7 +145,23 @@ const data = {
                   form_factor: "ATX"
                 },
                 rating: 5,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "PCMasterRace",
+                    "message": "High-end motherboard with excellent features. Perfect for gaming enthusiasts.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "OverclockerX",
+                    "message": "Robust build quality and great BIOS options for overclocking.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "TechGeek",
+                    "message": "Expensive but worth it. Unmatched performance and aesthetics.",
+                    "rating": 5
+                  }
+                ]
               },
               {
                 product_name: "MSI B450 TOMAHAWK MAX ATX Motherboard",
@@ -124,7 +184,7 @@ const data = {
               },
               {
                 product_name: "Corsair Vengeance LPX 16GB (2 x 8GB) DDR4 RAM",
-                category: "ram",
+                category: "RAM",
                 image_url: "https://www.startech.com.bd/image/cache/catalog/RAM/VENG_LPX_BLK_01-500x500.png",
                 price: 8500,
                 status: "In Stock",
@@ -138,11 +198,25 @@ const data = {
                   form_factor: "288-pin DIMM"
                 },
                 rating: 3,
-                reviews: []
+                reviews: [{
+                  "username": "CasualUser",
+                  "message": "Solid RAM for everyday tasks. Not too fancy but reliable.",
+                  "rating": 3
+                },
+                {
+                  "username": "GamerGuy",
+                  "message": "Good balance of price and performance. Works well for gaming.",
+                  "rating": 4
+                },
+                {
+                  "username": "TechEnthusiast",
+                  "message": "Stable performance and easy to overclock. Fits my needs.",
+                  "rating": 4
+                }]
               },
               {
                 product_name: "G.Skill Ripjaws V 32GB (2 x 16GB) DDR4 RAM",
-                category: "ram",
+                category: "RAM",
                 image_url: "https://www.techlandbd.com/image/catalog/RAM/G-Skill/RIPJAWS-V/G-Skill-Ripjaws-V-Black-single-ram.jpg",
                 price: 9500,
                 status: "In Stock",
@@ -160,7 +234,7 @@ const data = {
               },
               {
                 product_name: "Crucial Ballistix RGB 64GB (2 x 32GB) DDR4 RAM",
-                category: "ram",
+                category: "RAM",
                 image_url: "https://creatuscomputer.com/wp-content/uploads/2022/03/Untitled-1-1-1.jpg",
                 price: 4500,
                 status: "In Stock",
@@ -194,7 +268,23 @@ const data = {
                   certifications: "CE, FCC, TUV, cTUVus, BSMI, CCC, WEEE, RoHS, ErP Lot 6, REACH"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "PCBuilder123",
+                    "message": "Reliable power supply for budget builds. Quiet fan and good efficiency.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "TechEnthusiast",
+                    "message": "Affordable PSU with decent performance. Modular cables are a plus.",
+                    "rating": 3
+                  },
+                  {
+                    "username": "PowerUser",
+                    "message": "Handles my system well. Provides stable power output.",
+                    "rating": 4
+                  }
+                ]
               },
               {
                 product_name: "Corsair RM750x 750W 80+ Gold PSU",
@@ -214,7 +304,33 @@ const data = {
                   certifications: "80 Plus Gold, CE, FCC, ICES, cTUVus, TUV, CCC, BSMI, EAC, RCM, KC, Reach, RoHS, WEEE"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "PowerUser99",
+                    "message": "The Corsair RM750x is a reliable and efficient PSU. The fully modular design and Gold certification make it a great choice for demanding setups.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "GamingPro",
+                    "message": "I've been using the RM750x for my gaming rig, and it's been rock solid. The fully modular cables make cable management a breeze.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "TechEnthusiast",
+                    "message": "The 80+ Gold efficiency is a major plus, helping to save on power bills. The quiet fan and fully modular design are perfect for clean builds.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "Streamer",
+                    "message": "I need a PSU that can handle my streaming setup, and the RM750x has been up to the task. The performance and reliability are top-notch.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "CasualUser",
+                    "message": "750W is more than enough for my casual gaming setup. The PSU is well-built, and the modular design keeps my case tidy.",
+                    "rating": 4
+                  }
+                ]
               },
               {
                 product_name: "Seasonic Focus GX-850 850W 80+ Gold PSU",
@@ -234,7 +350,33 @@ const data = {
                   certifications: "80 Plus Gold, Energy Star, RoHS, WEEE, REACH, ErP Lot 6, TUV, CB, CCC, CE, FCC, C-Tick"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "PCBuilder123",
+                    "message": "The Seasonic GX-850 is a reliable power supply. It provides stable power delivery and the fully modular cables make cable management a breeze.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "GamingEnthusiast",
+                    "message": "The 80+ Gold efficiency ensures efficient power usage while the quiet fan keeps things cool. Perfect for high-performance gaming rigs.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "TechPro",
+                    "message": "The fully modular design is a game-changer for custom builds. This PSU is solidly built and has all the protection features you need.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "ContentCreator",
+                    "message": "With plenty of connectors, I can power my demanding workstation without worrying about stability. Seasonic's reputation for quality is evident.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "CasualUser",
+                    "message": "The 850W capacity is more than enough for my system. The modular design helps keep my case tidy and organized.",
+                    "rating": 4
+                  }
+                ]
               },
               {
                 product_name: "Samsung 970 EVO 500GB NVMe M.2 SSD",
@@ -253,7 +395,23 @@ const data = {
                   NAND_type: "Samsung V-NAND 3-bit MLC"
                 },
                 rating: 5,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "SpeedDemon",
+                    "message": "Lightning-fast SSD with impressive read and write speeds. Boosts system responsiveness.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "ContentCreator",
+                    "message": "Perfect for video editing. Fast data transfer makes a difference.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "EverydayUser",
+                    "message": "Quick boot times and snappy performance. Great addition to any setup.",
+                    "rating": 4
+                  }
+                ]
               },
               {
                 product_name: "Crucial MX500 1TB SATA 2.5-inch SSD",
@@ -310,7 +468,38 @@ const data = {
                   connectivity: "HDMI, VGA"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "OfficeWorker",
+                    "message": "Clear and vibrant colors. Ideal for office tasks and everyday use.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "GamerGuy",
+                    "message": "Decent gaming monitor with good color accuracy. Refresh rate could be higher.",
+                    "rating": 3
+                  },
+                  {
+                    "username": "MultimediaUser",
+                    "message": "Satisfactory for movies and light gaming. Affordable price point.",
+                    "rating": 3
+                  },
+                  {
+                    "username": "MultitaskingPro",
+                    "message": "The colors on this monitor are vibrant and accurate. It's a great choice for work and entertainment.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "GamingEnthusiast",
+                    "message": "Smooth visuals and wide viewing angles enhance my gaming experience. A solid monitor overall.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "DesignAficionado",
+                    "message": "The slim bezels make this monitor look sleek on my desk. Great for graphic design tasks.",
+                    "rating": 5
+                  }
+                ]
               },
               {
                 product_name: "LG 27GL83A-B 27-inch QHD Nano IPS Monitor",
@@ -329,7 +518,21 @@ const data = {
                   connectivity: "2 x HDMI, DisplayPort, USB Hub"
                 },
                 rating: 3,
-                reviews: []
+                reviews: [ {
+                  "username": "GamerExtraordinaire",
+                  "message": "Amazing colors and high refresh rate. Gaming feels incredibly smooth.",
+                  "rating": 5
+                },
+                {
+                  "username": "GraphicDesigner",
+                  "message": "Accurate color reproduction is essential for my work. This monitor delivers.",
+                  "rating": 5
+                },
+                {
+                  "username": "CasualUser",
+                  "message": "Good balance between work and entertainment. Better than my old monitor.",
+                  "rating": 4
+                }]
               },
               {
                 product_name: "ASUS ROG Swift PG279QZ 27-inch QHD Gaming Monitor",
@@ -348,7 +551,23 @@ const data = {
                   connectivity: "HDMI, DisplayPort, USB Hub"
                 },
                 rating: 5,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "ProGamer",
+                    "message": "165Hz refresh rate and G-Sync support make gaming on this monitor a dream come true.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "TechEnthusiast",
+                    "message": "The IPS panel provides rich colors and wide viewing angles. Excellent monitor overall.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "DesignProfessional",
+                    "message": "The high resolution and color accuracy make this monitor perfect for my design work.",
+                    "rating": 5
+                  }
+                ]
               },
               {
                 product_name: "Logitech G Pro X Mechanical Gaming Keyboard",
@@ -365,7 +584,23 @@ const data = {
                   additional_features: "Compact Tenkeyless Design, Detachable Cable"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "ProGamer123",
+                    "message": "Customizable switches are a game-changer. Perfect for competitive gaming.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "TypingEnthusiast",
+                    "message": "Responsive and comfortable to type on. RGB lighting adds a nice touch.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "TechGeek",
+                    "message": "Compact design fits my setup. Macros are helpful for productivity.",
+                    "rating": 4
+                  }
+                ]
               },
               {
                 product_name: "Razer DeathAdder Elite Gaming Mouse",
@@ -382,7 +617,21 @@ const data = {
                   additional_features: "Ergonomic Design, Programmable Buttons"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [ {
+                  "username": "FPSMaster",
+                  "message": "Precision and speed matter in FPS games. This mouse delivers both.",
+                  "rating": 5
+                },
+                {
+                  "username": "CasualGamer",
+                  "message": "Fits well in my hand. The customizable DPI settings are a plus.",
+                  "rating": 4
+                },
+                {
+                  "username": "MouseEnthusiast",
+                  "message": "A classic choice for gamers. Durable and responsive.",
+                  "rating": 4
+                }]
               },
               {
                 product_name: "HyperX Cloud II Gaming Headset",
@@ -399,7 +648,23 @@ const data = {
                   additional_features: "Memory Foam Ear Cushions, Multi-Platform Compatibility"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "AudiophileGamer",
+                    "message": "Impressive surround sound for an immersive gaming experience.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "TeamPlayer",
+                    "message": "Clear microphone and comfortable fit. Great for multiplayer games.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "MusicLover",
+                    "message": "Not just for gaming! Enjoying music with these headphones is a treat.",
+                    "rating": 5
+                  }
+                ]
               },
               {
                 product_name: "Corsair K95 RGB Platinum Mechanical Gaming Keyboard",
@@ -416,7 +681,23 @@ const data = {
                   additional_features: "Dedicated Macro Keys, Aircraft-Grade Aluminum Frame"
                 },
                 rating: 4,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "CustomizationFanatic",
+                    "message": "The RGB lighting options are endless, and the build quality is exceptional.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "TechEnthusiast",
+                    "message": "Cherry MX switches provide a satisfying typing experience. Macros are a game-changer.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "ProductivityPro",
+                    "message": "Dedicated macro keys boost my efficiency. Typing on this keyboard is a delight.",
+                    "rating": 4
+                  }
+                ]
               },
               {
                 product_name: "SteelSeries Rival 600 Gaming Mouse",
@@ -433,7 +714,23 @@ const data = {
                   additional_features: "Customizable Weight System, Split-Trigger Button Design"
                 },
                 rating: 5,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "CompetitiveGamer",
+                    "message": "Dual sensors offer precise tracking. The customizable weight system is a nice touch.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "ErgonomicSeeker",
+                    "message": "Comfortable grip and responsive buttons. This mouse is my new go-to for gaming.",
+                    "rating": 4
+                  },
+                  {
+                    "username": "TechEnthusiast",
+                    "message": "RGB lighting adds flair to my setup. Performance-wise, it's been exceptional.",
+                    "rating": 5
+                  }
+                ]
               },
               {
                 product_name: "Beyerdynamic DT 990 Pro Studio Headphones",
@@ -450,7 +747,23 @@ const data = {
                   additional_features: "Wide Soundstage, Replaceable Ear Pads"
                 },
                 rating: 3,
-                reviews: []
+                reviews: [
+                  {
+                    "username": "MusicProducer",
+                    "message": "The open-back design gives an expansive soundstage. Excellent choice for mixing.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "Audiophile",
+                    "message": "Crystal-clear audio reproduction. Perfect for enjoying music and critical listening.",
+                    "rating": 5
+                  },
+                  {
+                    "username": "ComfortSeeker",
+                    "message": "These headphones stay comfortable during long sessions. The sound quality is top-notch.",
+                    "rating": 4
+                  }
+                ]
               },
 
         ]

@@ -17,6 +17,8 @@ export const authOptions = {
   pages: {
     signIn: "/?loginModalOpen=true"
   },
+  secret: process.env.NEXTAUTH_SECRET,
+  
 }
 
 export default NextAuth(authOptions)
