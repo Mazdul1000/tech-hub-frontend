@@ -6,10 +6,10 @@ import { transformString } from "@/utils/transformString";
 import { useRouter } from "next/router";
 
 const CategoryPage = ({ category, products }) => {
-    const router = useRouter();
+  const router = useRouter();
   return (
     <main className={`${styles.main}`}>
-      <h1 style={{padding:"20px 20px"}}>Product category: {transformString(category)}</h1>
+      <h1 style={{ padding: "20px 20px" }}>Product category: {transformString(category)}</h1>
 
       <Row
         gutter={[{
@@ -17,14 +17,14 @@ const CategoryPage = ({ category, products }) => {
           sm: 16,
           md: 24,
           lg: 32,
-        },{
-            xs: 8,
-            sm: 16,
-            md: 24,
-            lg: 32,
-          }]}
-        justify= "center"
-        style={{height:"100%"}}
+        }, {
+          xs: 8,
+          sm: 16,
+          md: 24,
+          lg: 32,
+        }]}
+        justify="center"
+        style={{ height: "100%" }}
       >
         {products.map((product) => (
           <Col
@@ -88,7 +88,7 @@ CategoryPage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:5001/products`);
+  const res = await fetch(`https://techhub-server.vercel.app/products`);
   const data = await res.json();
   const categories = [
     ...new Set(data.products.map((product) => product.category)),
@@ -101,8 +101,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const category = params.category; 
-  const res = await fetch(`http://localhost:5001/products/${category}`); 
+  const category = params.category;
+  const res = await fetch(`https://techhub-server.vercel.app/products/${category}`);
   const data = await res.json();
 
   return {

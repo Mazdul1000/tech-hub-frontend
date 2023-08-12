@@ -73,90 +73,90 @@ const ProductDetails = ({ product, category }) => {
       </div>
       <div className={styles.review_section}>
         <h3 style={{}}>Reviews :</h3>
-        <Row gutter={[0, 40]} style={{ padding:"30px"}}>
-          <Col className={`gutter-row ${styles.review_card}`} span={24}>        
-          <h3>User 1</h3>
-              <p>This product is very good. Recommeded to everyone</p>
-              <Rate
-                className={`${styles.rating}`}
-                allowHalf
-                disabled
-                defaultValue={product.rating}
-              />
+        <Row gutter={[0, 40]} style={{ padding: "30px" }}>
+          <Col className={`gutter-row ${styles.review_card}`} span={24}>
+            <h3>User 1</h3>
+            <p>This product is very good. Recommeded to everyone</p>
+            <Rate
+              className={`${styles.rating}`}
+              allowHalf
+              disabled
+              defaultValue={product.rating}
+            />
           </Col>
-          <Col className={`gutter-row ${styles.review_card}`} span={24}>        
-          <h3>User 1</h3>
-              <p>This product is very good. Recommeded to everyone</p>
-              <Rate
-                className={`${styles.rating}`}
-                allowHalf
-                disabled
-                defaultValue={product.rating}
-              />
+          <Col className={`gutter-row ${styles.review_card}`} span={24}>
+            <h3>User 1</h3>
+            <p>This product is very good. Recommeded to everyone</p>
+            <Rate
+              className={`${styles.rating}`}
+              allowHalf
+              disabled
+              defaultValue={product.rating}
+            />
           </Col>
-          <Col className={`gutter-row ${styles.review_card}`} span={24}>        
-              <h3>User 1</h3>
-              <p>This product is very good. Recommeded to everyone</p>
-              <Rate
-                className={`${styles.rating}`}
-                allowHalf
-                disabled
-                defaultValue={product.rating}
-              />
+          <Col className={`gutter-row ${styles.review_card}`} span={24}>
+            <h3>User 1</h3>
+            <p>This product is very good. Recommeded to everyone</p>
+            <Rate
+              className={`${styles.rating}`}
+              allowHalf
+              disabled
+              defaultValue={product.rating}
+            />
           </Col>
         </Row>
 
         <h3>Write a Review :</h3>
         <div className={styles.formContainer}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label className={styles.label}>User Name</label>
-          <Controller
-            name="userName"
-            control={control}
-            defaultValue=""
-            rules={{ required: 'User name is required' }}
-            render={({ field, fieldState }) => (
-              <div>
-                <input {...field} className={styles.inputField} placeholder="Enter your user name" />
-                {fieldState.error && <p>{fieldState.error.message}</p>}
-              </div>
-            )}
-          />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <label className={styles.label}>User Name</label>
+              <Controller
+                name="userName"
+                control={control}
+                defaultValue=""
+                rules={{ required: 'User name is required' }}
+                render={({ field, fieldState }) => (
+                  <div>
+                    <input {...field} className={styles.inputField} placeholder="Enter your user name" />
+                    {fieldState.error && <p>{fieldState.error.message}</p>}
+                  </div>
+                )}
+              />
+            </div>
+            <div>
+              <label className={styles.label}>Review</label>
+              <Controller
+                name="review"
+                control={control}
+                defaultValue=""
+                rules={{ required: 'Review is required' }}
+                render={({ field, fieldState }) => (
+                  <div>
+                    <textarea {...field} className={styles.textareaField} placeholder="Write your review here" />
+                    {fieldState.error && <p>{fieldState.error.message}</p>}
+                  </div>
+                )}
+              />
+            </div>
+            <div>
+              <label className={styles.label}>Rating</label>
+              <Controller
+                name="rating"
+                control={control}
+                defaultValue={0}
+                render={({ field }) => (
+                  <div className={styles.rating}>
+                    <Rate {...field} allowHalf defaultValue={product.rating} />
+                  </div>
+                )}
+              />
+            </div>
+            <button type="submit" disabled={formState.isSubmitting} className={styles.submit_btn}>
+              Submit Review
+            </button>
+          </form>
         </div>
-        <div>
-          <label className={styles.label}>Review</label>
-          <Controller
-            name="review"
-            control={control}
-            defaultValue=""
-            rules={{ required: 'Review is required' }}
-            render={({ field, fieldState }) => (
-              <div>
-                <textarea {...field} className={styles.textareaField} placeholder="Write your review here" />
-                {fieldState.error && <p>{fieldState.error.message}</p>}
-              </div>
-            )}
-          />
-        </div>
-        <div>
-          <label className={styles.label}>Rating</label>
-          <Controller
-            name="rating"
-            control={control}
-            defaultValue={0}
-            render={({ field }) => (
-              <div className={styles.rating}>
-                <Rate {...field} allowHalf defaultValue={product.rating} />
-              </div>
-            )}
-          />
-        </div>
-        <button  type="submit" disabled={formState.isSubmitting} className={styles.submit_btn}>
-          Submit Review
-        </button>
-      </form>
-    </div>
       </div>
     </div>
   );
@@ -169,7 +169,7 @@ ProductDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:5001/products");
+  const res = await fetch("https://techhub-server.vercel.app/products");
   const data = await res.json();
   const paths = data.products.map((product) => ({
     params: { slug: [product.category, product._id] },
@@ -183,7 +183,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const [category, productId] = params.slug;
-  const res = await fetch(`http://localhost:5001/product/${productId}`);
+  const res = await fetch(`https://techhub-server.vercel.app/product/${productId}`);
   const data = await res.json();
 
   return {

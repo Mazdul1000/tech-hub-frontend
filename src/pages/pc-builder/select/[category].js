@@ -107,7 +107,7 @@ SelectComponent.getLayout = function getLayout(page) {
 };
 
 /* export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:5001/products`);
+  const res = await fetch(`https://techhub-server.vercel.app/products`);
   const data = await res.json();
   const categories = [
     ...new Set(data.products.map((product) => product.category)),
@@ -121,7 +121,7 @@ SelectComponent.getLayout = function getLayout(page) {
 
 export const getServerSideProps = async ({ params }) => {
   const category = params.category;
-  const res = await fetch(`http://localhost:5001/products/${category}`);
+  const res = await fetch(`https://techhub-server.vercel.app/products/${category}`);
   const data = await res.json();
 
   return {

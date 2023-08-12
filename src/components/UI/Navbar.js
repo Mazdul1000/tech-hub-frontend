@@ -1,4 +1,4 @@
-import { Button, Divider, Dropdown, Menu, Modal } from "antd";
+import { Button, Divider, Drawer, Dropdown, Menu, Modal, Space } from "antd";
 import { Layout } from "antd";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,56 +7,60 @@ import {
   MergeCellsOutlined,
   GoogleOutlined,
   GithubOutlined,
+  MenuOutlined,
 } from "@ant-design/icons";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Navbar.module.css";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { signIn, signOut, useSession } from "next-auth/react";
+import ResponsiveDrawer from "./ResponsiveDrawer";
 const { Header } = Layout;
+
+
+const items = [
+  {
+    key: "1",
+    label: <Link href="/products/processor">CPU / Processor</Link>,
+  },
+  {
+    key: "2",
+    label: <Link href="/products/motherboard">Motherboard</Link>,
+  },
+  {
+    key: "3",
+    label: <Link href="/products/RAM">RAM</Link>,
+  },
+  {
+    key: "4",
+    label: <Link href="/products/power supply">Power Supply Unit (PSU)</Link>,
+  },
+  {
+    key: "5",
+    label: <Link href="/products/storage">Storage Device</Link>,
+  },
+  {
+    key: "6",
+    label: <Link href="/products/monitor">Monitors</Link>,
+  },
+  {
+    key: "7",
+    label: <Link href="/products/others">Others</Link>,
+  },
+];
+
 
 const Navbar = () => {
   const router = useRouter();
   const { data: session, status } = useSession();
-  const items = [
-    {
-      key: "1",
-      label: <Link href="/products/processor">CPU / Processor</Link>,
-    },
-    {
-      key: "2",
-      label: <Link href="/products/motherboard">Motherboard</Link>,
-    },
-    {
-      key: "3",
-      label: <Link href="/products/RAM">RAM</Link>,
-    },
-    {
-      key: "4",
-      label: <Link href="/products/power supply">Power Supply Unit (PSU)</Link>,
-    },
-    {
-      key: "5",
-      label: <Link href="/products/storage">Storage Device</Link>,
-    },
-    {
-      key: "6",
-      label: <Link href="/products/monitor">Monitors</Link>,
-    },
-    {
-      key: "7",
-      label: <Link href="/products/others">Others</Link>,
-    },
-  ];
-
   const { register, handleSubmit } = useForm();
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
-  const [modalText, setModalText] = useState("Content of the modal");
   const onSubmit = (data) => {
-    console.log(data);
     setOpen(false);
   };
+
+  
 
   const showModal = () => {
     setOpen(true);
@@ -70,17 +74,16 @@ const Navbar = () => {
     router.replace({ pathname, query });
   };
 
-  const handleGooleLogin = async() => {
+  const handleGooleLogin = async () => {
     signIn("google", {
-      callbackUrl: router.query.callbackUrl
-    })
-    setOpen(false)
-
+      callbackUrl: router.query.callbackUrl,
+    });
+    setOpen(false);
   };
 
   const handleGithubLogin = () => {
     signIn("github", {
-      callbackUrl: router.query.callbackUrl
+      callbackUrl: router.query.callbackUrl,
     });
     setOpen(false);
   };
@@ -176,6 +179,8 @@ const Navbar = () => {
           )}
         </div>
       </Menu>
+
+     <ResponsiveDrawer setOpen={setOpen}/>
 
       <Modal
         className={styles.login_modal}
