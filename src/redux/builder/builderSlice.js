@@ -5,8 +5,8 @@ const initialState = {
         processor: {},
         motherboard: {},
         RAM: {},
-        power_supply: {},
-        storage_device: {},
+        ["power supply"]: {},
+        storage : {},
         monitor: {}
     },
     isLoading: false,

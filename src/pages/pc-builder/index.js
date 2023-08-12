@@ -1,19 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import RootLayout from "@/components/Layouts/RootLayout";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/PC-Build.module.css";
-import { Button, Card, Rate, Space, Table } from "antd";
+import { Button, Card, Rate, Space, Table, message } from "antd";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { DeleteFilled } from "@ant-design/icons";
 import Image from "next/image";
 import { removeComponent } from "@/redux/builder/builderSlice";
+import { MergeCellsOutlined } from "@ant-design/icons";
 const { Column } = Table;
 
 const PcBuilder = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch();
   const { components } = useSelector((state) => state.builder);
-
   const router = useRouter();
+
+  const [totaPrice, setTotalPrice] = useState(0);
+  const [areAllSelected, setAreAllSelected] = useState(false);
+
+  
 
   const data = [
     {
@@ -33,7 +40,7 @@ const PcBuilder = () => {
       },
     },
     {
-      key: "2",
+      key: "3",
       component: { name: "RAM" },
       product: {
         category: "RAM",
@@ -41,15 +48,15 @@ const PcBuilder = () => {
       },
     },
     {
-      key: "2",
+      key: "4",
       component: { name: "Power Supply Unit" },
       product: {
         category: "power supply",
-        data: components.power_supply,
+        data: components["power supply"],
       },
     },
     {
-      key: "2",
+      key: "5",
       component: { name: "Storage Device" },
       product: {
         category: "storage",
@@ -57,7 +64,7 @@ const PcBuilder = () => {
       },
     },
     {
-      key: "2",
+      key: "6",
       component: { name: "Monitor" },
       product: {
         category: "monitor",
@@ -65,18 +72,72 @@ const PcBuilder = () => {
       },
     },
   ];
+  
+
+  useEffect(() => {
+    // Calculate whether all components are selected
+    const allSelected = data.every((item) => item.product?.data?.product_name);
+    setAreAllSelected(allSelected);
+  }, [data]);
+
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+
+    data.forEach((item) => {
+      if (item.product?.data?.product_name) {
+        totalPrice += parseInt(item.product.data.price);
+      }
+    });
+
+    return totalPrice;
+  };
+
+
+  const success = () => {
+    messageApi
+      .open({
+        type: 'loading',
+        content: 'Checking the components availability..',
+        duration: 3,
+      })
+      .then(() => message.success('Your PC building request has been accepetd', 2.5))
+      .then(() => message.info('We will contact you soon', 3));
+  };
+
+
+  const handleBuild = () => {
+   success()
+  }
+
 
   return (
+    <>
+    {contextHolder}
     <div className={styles.container}>
       <div className={styles.main}>
-        <h1>Build Your Dream PC</h1>
+        <div className={styles.header}>
+         <h3>Builder Your Dream PC</h3> 
+       <div className={styles.build_button_container}>
+        <p>Total: ৳{calculateTotalPrice()}</p>
+       <Button
+              className={styles.pc_builder_btn}
+              size="large"
+              type="primary"
+              icon={<MergeCellsOutlined />}
+              disabled={!areAllSelected}
+              onClick={handleBuild}
+            >
+              Build PC
+            </Button>
+       </div>
+        </div>
         <Table dataSource={data}>
           <Column
             title="Component"
             dataIndex="component"
             key="component"
             render={(component) => (
-              <div style={{ width: "300px", height: "100px" }}>
+              <div style={{ height: "100px" }}>
                 {" "}
                 {component.name}
               </div>
@@ -152,6 +213,7 @@ const PcBuilder = () => {
         </Table>
       </div>
     </div>
+    </>
   );
 };
 

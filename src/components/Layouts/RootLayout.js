@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout, theme } from 'antd';
 import Navbar from '../UI/Navbar';
 import Footer from '../UI/Footer';
+import styles from '@/styles/RootLayout.module.css'
 const {  Content} = Layout;
 const RootLayout = ({children}) => {
   const {
@@ -11,9 +12,15 @@ const RootLayout = ({children}) => {
     <Layout className="layout">
         <Navbar />
       <Content
+        className={styles.content_container}
         style={{
           padding: '0 50px',
-          minHeight: "calc(100vh - 144.5px)"
+          minHeight: "100vh",
+          marginTop: "64px",
+          '@media (max-width: 768px)': {
+            padding: '0 !important',
+            backgroundColor:"red"
+          },
         }}
       >
         <div
