@@ -127,7 +127,7 @@ const PcBuilder = () => {
               disabled={!areAllSelected}
               onClick={handleBuild}
             >
-              Build PC
+              Complete Build
             </Button>
        </div>
         </div>

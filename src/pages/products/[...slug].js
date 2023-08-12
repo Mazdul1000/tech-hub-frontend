@@ -74,36 +74,18 @@ const ProductDetails = ({ product, category }) => {
       <div className={styles.review_section}>
         <h3 style={{}}>Reviews :</h3>
         <Row gutter={[0, 40]} style={{ padding: "30px" }}>
-          <Col className={`gutter-row ${styles.review_card}`} span={24}>
-            <h3>User 1</h3>
-            <p>This product is very good. Recommeded to everyone</p>
+          {
+            product.reviews.map((review, index) => <Col key={index} className={`gutter-row ${styles.review_card}`} span={24}>
+            <h3>{review.username}</h3>
+            <p>{review.message}</p>
             <Rate
               className={`${styles.rating}`}
               allowHalf
               disabled
-              defaultValue={product.rating}
+              defaultValue={review.rating}
             />
-          </Col>
-          <Col className={`gutter-row ${styles.review_card}`} span={24}>
-            <h3>User 1</h3>
-            <p>This product is very good. Recommeded to everyone</p>
-            <Rate
-              className={`${styles.rating}`}
-              allowHalf
-              disabled
-              defaultValue={product.rating}
-            />
-          </Col>
-          <Col className={`gutter-row ${styles.review_card}`} span={24}>
-            <h3>User 1</h3>
-            <p>This product is very good. Recommeded to everyone</p>
-            <Rate
-              className={`${styles.rating}`}
-              allowHalf
-              disabled
-              defaultValue={product.rating}
-            />
-          </Col>
+          </Col>)
+          }
         </Row>
 
         <h3>Write a Review :</h3>
